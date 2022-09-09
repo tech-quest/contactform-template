@@ -2,12 +2,13 @@
 $dbUserName = 'root';
 $dbPassword = 'password';
 $pdo = new PDO(
-    'mysql:dbname=tqcontactform;host=mysql;charset=utf8',
+    'mysql:dbname=contactform;host=mysql;charset=utf8',
     $dbUserName,
     $dbPassword
 );
 $sql = 'SELECT * FROM contacts';
-$stmt = $pdo->query($sql);
+$statement = $pdo->prepare($sql);
+$statement->execute();
 $contacts = $stmt->fetchall(PDO::FETCH_ASSOC);
 ?>
 
@@ -24,7 +25,9 @@ $contacts = $stmt->fetchall(PDO::FETCH_ASSOC);
       <h2>送信履歴</h2>
       <?php foreach ($contacts as $contact): ?>
         <h3><?php echo $contact['title']; ?></h3>
-        <p><?php echo $contact['content']; ?></p>
+        <p><?php echo $contact['content'] .
+            '<br>' .
+            '----------------------------------------------------------------------'; ?></p>
         <?php endforeach; ?>
         <a href = "./index.php">戻る</a>
     </div>
