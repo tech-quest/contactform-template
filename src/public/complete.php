@@ -44,5 +44,5 @@ if (!empty($title) && !empty($email) && !empty($content)) {
 
 <body>
   <h2><?php echo $message; ?></h2>
-  <p><?php echo $links; ?></p>
+  <p><?php echo $link; ?></p>
 </body>

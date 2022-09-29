@@ -9,7 +9,7 @@ $pdo = new PDO(
 $sql = 'SELECT * FROM contacts';
 $statement = $pdo->prepare($sql);
 $statement->execute();
-$contacts = $stmt->fetchall(PDO::FETCH_ASSOC);
+$contacts = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
